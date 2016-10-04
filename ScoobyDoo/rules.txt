@@ -1,0 +1,7 @@
+WHOLE AIM TO SURVIVE 100 ROUNDS
+You start with just a dog.
+Roll a dice (4) to see how many of the extra members that you get.
+The first person you get is Velma, You may choose the others!
+Roll 2x(6) dice: 1/Zombie 2/Ammo 3/Zombie 4/Food 5/Nothing 6/Survivor
+If you still have a dog you can reroll one of the dice.
+However if you get a zombie the dog dies
