@@ -33,6 +33,13 @@ public class Main {
 				shutdown();
 			}
 		});
+		theFrame.addWindowFocusListener(new WindowAdapter() {
+			@Override
+			public void windowLostFocus(WindowEvent e) {
+				Keyboard.clearKeys();
+			}
+		});
+		theWindow.requestFocusInWindow();
 		theFrame.setVisible(true);
 
 		// The main game loop. One run-through of this loop = one tick
@@ -62,7 +69,11 @@ public class Main {
 	// This is called every tick, do stuff that needs to happen every tick in
 	// here
 	private static void tick() {
+		Keyboard.updateTick();
 
+		if (Keyboard.isKeyDown("test")) {
+			System.out.println("Test key held down");
+		}
 	}
 
 }

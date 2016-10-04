@@ -11,6 +11,7 @@ public class MainWindow extends JPanel {
 	
 	public MainWindow() {
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
+		addKeyListener(Keyboard.instance());
 	}
 
 }
