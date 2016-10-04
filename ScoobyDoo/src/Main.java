@@ -5,13 +5,19 @@ import javax.swing.JFrame;
 
 public class Main {
 
+	// CONSTANTS
 	public static final String GAME_NAME = "Scooby Doo Zombie Game";
+	// Ticks per second
+	public static final int TPS = 30;
+	public static final int MILLIS_PER_TICK = 1000 / TPS;
 
+	// GLOBAL VARIABLES
 	public static JFrame theFrame;
 	public static MainWindow theWindow;
 	private static boolean isRunning;
 
 	public static void main(String[] args) {
+		// Setup the frame
 		theFrame = new JFrame(GAME_NAME);
 		theWindow = new MainWindow();
 		theFrame.setContentPane(theWindow);
@@ -22,20 +28,21 @@ public class Main {
 		theFrame.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
+				// This runs when the user presses the 'x' button
 				theFrame.dispose();
 				shutdown();
 			}
 		});
 		theFrame.setVisible(true);
 
+		// The main game loop. One run-through of this loop = one tick
 		isRunning = true;
-
 		while (isRunning) {
 			long startTime = System.nanoTime();
 
 			tick();
 
-			long deltaTime = (System.nanoTime() - startTime) / 1000000;
+			long deltaTime = MILLIS_PER_TICK - (System.nanoTime() - startTime) / 1000000;
 			if (deltaTime > 0) {
 				try {
 					Thread.sleep(deltaTime);
@@ -52,6 +59,8 @@ public class Main {
 		isRunning = false;
 	}
 
+	// This is called every tick, do stuff that needs to happen every tick in
+	// here
 	private static void tick() {
 
 	}
