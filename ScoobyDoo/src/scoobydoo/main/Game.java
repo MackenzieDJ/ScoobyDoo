@@ -1,4 +1,5 @@
 package scoobydoo.main;
+
 import javax.swing.JFrame;
 
 import scoobydoo.engine.game.CustomJFrame;
@@ -27,6 +28,7 @@ public class Game {
 		theWindow = new MainWindow();
 		theFrame = new CustomJFrame(theWindow);
 
+		// Display the title screen
 		openScreen(new TitleScreen());
 
 		// The main game loop. One run-through of this loop = one tick
@@ -56,6 +58,8 @@ public class Game {
 	// This is called every tick, do stuff that needs to happen every tick in
 	// here
 	private static void tick() {
+		// Update inputs. Do this before everything else so things react to
+		// input more instantly
 		Keyboard.updateTick();
 		Mouse.updateTick();
 
@@ -63,13 +67,18 @@ public class Game {
 			System.out.println("Test key held down");
 		}
 
+		// Update the current screen
 		if (theScreen != null) {
 			theScreen.updateTick();
 		}
 
+		// Repaint the window
 		theWindow.repaint();
 	}
 
+	/**
+	 * Called to change the currently open screen
+	 */
 	public static void openScreen(Screen screen) {
 		if (theScreen != null) {
 			theScreen.onScreenClosed();
@@ -79,6 +88,9 @@ public class Game {
 		screen.validate(theWindow.getWidth(), theWindow.getHeight());
 	}
 
+	/**
+	 * Returns the currently open screen
+	 */
 	public static Screen getOpenScreen() {
 		return theScreen;
 	}

@@ -1,4 +1,5 @@
 package scoobydoo.engine.input;
+
 import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
@@ -8,6 +9,10 @@ import java.util.Set;
 
 import scoobydoo.main.Game;
 
+/**
+ * This class controls input from the mouse
+ *
+ */
 public class Mouse extends MouseAdapter {
 
 	private static final Mouse INSTANCE = new Mouse();
@@ -22,11 +27,18 @@ public class Mouse extends MouseAdapter {
 
 	private Mouse() {
 	}
-	
+
 	public static Mouse instance() {
 		return INSTANCE;
 	}
 
+	/**
+	 * Returns true if the specified button was pressed between this tick and
+	 * the last
+	 * 
+	 * @param button
+	 *            - E.g. MouseEvent.BUTTON1
+	 */
 	public static boolean isButtonPressed(int button) {
 		return INSTANCE.doIsButtonPressed(button);
 	}
@@ -37,6 +49,13 @@ public class Mouse extends MouseAdapter {
 		}
 	}
 
+	/**
+	 * Returns true if the specified button was released between this tick and
+	 * the last
+	 * 
+	 * @param button
+	 *            - E.g. MouseEvent.BUTTON1
+	 */
 	public static boolean isButtonReleased(int button) {
 		return INSTANCE.doIsButtonReleased(button);
 	}
@@ -47,6 +66,12 @@ public class Mouse extends MouseAdapter {
 		}
 	}
 
+	/**
+	 * Returns true if the specified button is currently being held down
+	 * 
+	 * @param button
+	 *            - E.g. MouseEvent.BUTTON1
+	 */
 	public static boolean isButtonDown(int button) {
 		return INSTANCE.doIsButtonDown(button);
 	}
@@ -57,6 +82,9 @@ public class Mouse extends MouseAdapter {
 		}
 	}
 
+	/**
+	 * Virtually press the given button
+	 */
 	public static void pressButton(int button) {
 		INSTANCE.doPressButton(button);
 	}
@@ -69,6 +97,9 @@ public class Mouse extends MouseAdapter {
 		}
 	}
 
+	/**
+	 * Virtually release the given button
+	 */
 	public static void releaseButton(int button) {
 		INSTANCE.doReleaseButton(button);
 	}
@@ -93,6 +124,9 @@ public class Mouse extends MouseAdapter {
 		}
 	}
 
+	/**
+	 * Must be called every tick to update the button press and release logic
+	 */
 	public static void updateTick() {
 		INSTANCE.doUpdateTick();
 	}
@@ -115,6 +149,9 @@ public class Mouse extends MouseAdapter {
 		}
 	}
 
+	/**
+	 * Returns the mouse pointer location
+	 */
 	public static Point getMouseLocation() {
 		Point locOnScreen = MouseInfo.getPointerInfo().getLocation();
 		Point windowLoc = Game.theWindow.getLocationOnScreen();

@@ -1,4 +1,5 @@
 package scoobydoo.engine.input;
+
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
@@ -6,7 +7,9 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-// This class controls input from the keyboard
+/**
+ * This class controls input from the keyboard
+ */
 public class Keyboard extends KeyAdapter {
 
 	private static final Keyboard INSTANCE = new Keyboard();
@@ -17,6 +20,8 @@ public class Keyboard extends KeyAdapter {
 	private final Set<Integer> keysReleased = new HashSet<Integer>();
 	private final Set<Integer> keysDown = new HashSet<Integer>();
 	private final Set<Integer> pendingKeysPressed = new HashSet<Integer>();
+	// This has to be more complicated than the mouse due to repeat key events,
+	// especially on Linux
 	private final Map<Integer, Integer> ticksSinceKeyReleased = new HashMap<Integer, Integer>();
 	private boolean enableRepeatEvents = false;
 
@@ -240,6 +245,9 @@ public class Keyboard extends KeyAdapter {
 		}
 	}
 
+	/**
+	 * Must be called every tick to update the key press and release logic
+	 */
 	public static void updateTick() {
 		INSTANCE.doUpdateTick();
 	}
@@ -276,7 +284,7 @@ public class Keyboard extends KeyAdapter {
 	public void keyReleased(KeyEvent event) {
 		doReleaseKey(event.getKeyCode());
 	}
-	
+
 	static {
 		registerKeyBindings();
 	}

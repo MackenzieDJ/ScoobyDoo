@@ -1,4 +1,5 @@
 package scoobydoo.engine.game;
+
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
@@ -11,6 +12,9 @@ import scoobydoo.engine.input.Keyboard;
 import scoobydoo.engine.input.Mouse;
 import scoobydoo.main.Game;
 
+/**
+ * Custom JPanel which is used as the JFrame's content pane
+ */
 public class MainWindow extends JPanel {
 
 	private static final long serialVersionUID = -3880026026104218593L;

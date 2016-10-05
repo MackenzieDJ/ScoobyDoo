@@ -8,6 +8,9 @@ import scoobydoo.engine.input.Keyboard;
 import scoobydoo.engine.input.Mouse;
 import scoobydoo.main.Game;
 
+/**
+ * Custom JFrame class
+ */
 public class CustomJFrame extends JFrame {
 
 	private static final long serialVersionUID = 5862168449191459872L;
