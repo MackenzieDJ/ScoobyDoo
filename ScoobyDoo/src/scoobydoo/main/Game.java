@@ -1,4 +1,12 @@
+package scoobydoo.main;
 import javax.swing.JFrame;
+
+import scoobydoo.engine.game.CustomJFrame;
+import scoobydoo.engine.game.MainWindow;
+import scoobydoo.engine.gui.Screen;
+import scoobydoo.engine.input.Keyboard;
+import scoobydoo.engine.input.Mouse;
+import scoobydoo.gui.TitleScreen;
 
 public class Game {
 

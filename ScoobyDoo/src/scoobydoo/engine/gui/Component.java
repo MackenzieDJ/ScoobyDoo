@@ -1,3 +1,4 @@
+package scoobydoo.engine.gui;
 import java.awt.Graphics;
 
 public abstract class Component {

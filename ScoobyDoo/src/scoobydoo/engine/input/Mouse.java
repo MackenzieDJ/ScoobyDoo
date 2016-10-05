@@ -1,9 +1,12 @@
+package scoobydoo.engine.input;
 import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.HashSet;
 import java.util.Set;
+
+import scoobydoo.main.Game;
 
 public class Mouse extends MouseAdapter {
 

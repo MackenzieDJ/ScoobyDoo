@@ -1,3 +1,4 @@
+package scoobydoo.engine.gui;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;

@@ -1,7 +1,12 @@
+package scoobydoo.engine.game;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
+
+import scoobydoo.engine.input.Keyboard;
+import scoobydoo.engine.input.Mouse;
+import scoobydoo.main.Game;
 
 public class CustomJFrame extends JFrame {
 

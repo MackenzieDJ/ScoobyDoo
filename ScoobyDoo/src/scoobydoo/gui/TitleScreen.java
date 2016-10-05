@@ -1,5 +1,9 @@
+package scoobydoo.gui;
 import java.awt.Color;
 import java.awt.Graphics;
+
+import scoobydoo.engine.gui.Button;
+import scoobydoo.engine.gui.Screen;
 
 public class TitleScreen extends Screen {
 

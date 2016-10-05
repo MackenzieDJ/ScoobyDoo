@@ -1,9 +1,15 @@
+package scoobydoo.engine.game;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JPanel;
+
+import scoobydoo.engine.gui.Screen;
+import scoobydoo.engine.input.Keyboard;
+import scoobydoo.engine.input.Mouse;
+import scoobydoo.main.Game;
 
 public class MainWindow extends JPanel {
 

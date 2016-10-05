@@ -1,9 +1,12 @@
+package scoobydoo.engine.gui;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Rectangle2D;
+
+import scoobydoo.engine.input.Mouse;
 
 public class Button extends Component {
 
