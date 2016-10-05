@@ -1,9 +1,6 @@
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-
 import javax.swing.JFrame;
 
-public class Main {
+public class Game {
 
 	// CONSTANTS
 	public static final String GAME_NAME = "Scooby Doo Zombie Game";
@@ -15,32 +12,14 @@ public class Main {
 	public static JFrame theFrame;
 	public static MainWindow theWindow;
 	private static boolean isRunning;
+	private static Screen theScreen;
 
 	public static void main(String[] args) {
 		// Setup the frame
-		theFrame = new JFrame(GAME_NAME);
 		theWindow = new MainWindow();
-		theFrame.setContentPane(theWindow);
+		theFrame = new CustomJFrame(theWindow);
 
-		theFrame.pack();
-		theFrame.setLocationRelativeTo(null);
-		theFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		theFrame.addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosing(WindowEvent e) {
-				// This runs when the user presses the 'x' button
-				theFrame.dispose();
-				shutdown();
-			}
-		});
-		theFrame.addWindowFocusListener(new WindowAdapter() {
-			@Override
-			public void windowLostFocus(WindowEvent e) {
-				Keyboard.clearKeys();
-			}
-		});
-		theWindow.requestFocusInWindow();
-		theFrame.setVisible(true);
+		openScreen(new TitleScreen());
 
 		// The main game loop. One run-through of this loop = one tick
 		isRunning = true;
@@ -70,10 +49,30 @@ public class Main {
 	// here
 	private static void tick() {
 		Keyboard.updateTick();
+		Mouse.updateTick();
 
 		if (Keyboard.isKeyDown("test")) {
 			System.out.println("Test key held down");
 		}
+
+		if (theScreen != null) {
+			theScreen.updateTick();
+		}
+
+		theWindow.repaint();
+	}
+
+	public static void openScreen(Screen screen) {
+		if (theScreen != null) {
+			theScreen.onScreenClosed();
+		}
+		theScreen = screen;
+		screen.onScreenOpened();
+		screen.validate(theWindow.getWidth(), theWindow.getHeight());
+	}
+
+	public static Screen getOpenScreen() {
+		return theScreen;
 	}
 
 }
