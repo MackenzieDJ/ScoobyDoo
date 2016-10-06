@@ -1,5 +1,7 @@
 package scoobydoo.main;
 
+import java.awt.Font;
+
 import javax.swing.JFrame;
 
 import scoobydoo.engine.game.CustomJFrame;
@@ -16,6 +18,7 @@ public class Game {
 	// Ticks per second
 	public static final int TPS = 30;
 	public static final int MILLIS_PER_TICK = 1000 / TPS;
+	public static final Font NORMAL_FONT = new Font(Font.MONOSPACED, Font.PLAIN, 18);
 
 	// GLOBAL VARIABLES
 	public static JFrame theFrame;

@@ -1,12 +1,13 @@
 package scoobydoo.engine.gui;
+
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Rectangle2D;
 
 import scoobydoo.engine.input.Mouse;
+import scoobydoo.main.Game;
 
 public class Button extends Component {
 
@@ -19,7 +20,6 @@ public class Button extends Component {
 	private static final Color PRESSED_BG_COLOR = new Color(190, 240, 16); // yellow-green
 	private static final Color PRESSED_OUTLINE_COLOR = new Color(70, 141, 140); // yellow-blue
 	private static final Color PRESSED_TEXT_COLOR = new Color(244, 110, 23); // yellow-orange
-	private static final Font FONT = new Font(Font.MONOSPACED, Font.PLAIN, 18);
 
 	private String text;
 	private String buttonId;
@@ -78,7 +78,7 @@ public class Button extends Component {
 		g.drawRect(getX(), getY(), getWidth(), getHeight());
 
 		g.setColor(textColor);
-		g.setFont(FONT);
+		g.setFont(Game.NORMAL_FONT);
 		Rectangle2D textSize = g.getFontMetrics().getStringBounds(text, g);
 		g.drawString(text, getX() + getWidth() / 2 - (int) (textSize.getWidth() / 2),
 				getY() + getHeight() / 2 + (int) (textSize.getHeight() / 4));
