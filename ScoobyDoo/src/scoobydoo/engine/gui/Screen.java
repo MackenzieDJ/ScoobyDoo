@@ -29,8 +29,7 @@ public abstract class Screen {
 	}
 
 	/**
-	 * Called when the screen is first opened. Use this method to initialize
-	 * your buttons etc.
+	 * Called when the screen is opened
 	 */
 	public void onScreenOpened() {
 	}
@@ -42,11 +41,16 @@ public abstract class Screen {
 	}
 
 	/**
-	 * Use this method to handle the actual width and height of your components,
-	 * and to register them to this screen using
-	 * {@link #addComponent(Component)}
+	 * Use this method to create and register your components to this screen
 	 */
 	public void layout() {
+	}
+	
+	/**
+	 * Helper method to add a button to this screen
+	 */
+	public void addButton(int x, int y, int width, int height, String text, String buttonId) {
+		addComponent(new Button(x, y, width, height, text, buttonId));
 	}
 
 	/**
