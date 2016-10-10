@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
-import java.awt.geom.Rectangle2D;
 
 import scoobydoo.engine.input.Mouse;
 import scoobydoo.main.Game;
@@ -79,9 +78,7 @@ public class Button extends Component {
 
 		g.setColor(textColor);
 		g.setFont(Game.NORMAL_FONT);
-		Rectangle2D textSize = g.getFontMetrics().getStringBounds(text, g);
-		g.drawString(text, getX() + getWidth() / 2 - (int) (textSize.getWidth() / 2),
-				getY() + getHeight() / 2 + (int) (textSize.getHeight() / 4));
+		drawCenteredString(g, text, getX() + getWidth() / 2, getY() + getHeight() / 2);
 	}
 
 }

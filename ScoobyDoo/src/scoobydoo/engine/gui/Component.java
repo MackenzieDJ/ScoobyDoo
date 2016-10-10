@@ -1,5 +1,7 @@
 package scoobydoo.engine.gui;
+
 import java.awt.Graphics;
+import java.awt.geom.Rectangle2D;
 
 public abstract class Component {
 
@@ -47,24 +49,29 @@ public abstract class Component {
 	public void setHeight(int height) {
 		this.height = height;
 	}
-	
+
 	public Screen getOwningScreen() {
 		return owningScreen;
 	}
-	
+
 	public void registerOwningScreen(Screen screen) {
 		this.owningScreen = screen;
 	}
-	
+
 	public void onMousePressed(int x, int y, int button) {
 	}
-	
+
 	public void onMouseReleased(int x, int y, int button) {
 	}
-	
+
 	public void updateTick() {
 	}
-	
+
 	public abstract void draw(Graphics g);
+
+	protected static void drawCenteredString(Graphics g, String text, int x, int y) {
+		Rectangle2D textSize = g.getFontMetrics().getStringBounds(text, g);
+		g.drawString(text, x - (int) (textSize.getWidth() / 2), y + (int) (textSize.getHeight() / 4));
+	}
 
 }

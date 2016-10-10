@@ -2,6 +2,7 @@ package scoobydoo.engine.gui;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -45,12 +46,38 @@ public abstract class Screen {
 	 */
 	public void layout() {
 	}
-	
+
 	/**
-	 * Helper method to add a button to this screen
+	 * Helper method to add a button to this screen. Returns the button created
 	 */
-	public void addButton(int x, int y, int width, int height, String text, String buttonId) {
-		addComponent(new Button(x, y, width, height, text, buttonId));
+	public Button addButton(int x, int y, int width, int height, String text, String buttonId) {
+		Button button = new Button(x, y, width, height, text, buttonId);
+		addComponent(button);
+		return button;
+	}
+
+	/**
+	 * Helper method to add a label to this screen. Returns the label created
+	 */
+	public Label addLabel(int x, int y, int width, int height, String text) {
+		Label label = new Label(x, y, width, height, text);
+		addComponent(label);
+		return label;
+	}
+
+	/**
+	 * Helper method to add a label to this screen. Returns the label created
+	 */
+	public Label addLabel(int x, int y, int width, int height, String text, Color color) {
+		Label label = new Label(x, y, width, height, text, color);
+		addComponent(label);
+		return label;
+	}
+	
+	public ImageDisplay addImage(int x, int y, int width, int height, Image image) {
+		ImageDisplay display = new ImageDisplay(x, y, width, height, image);
+		addComponent(display);
+		return display;
 	}
 
 	/**

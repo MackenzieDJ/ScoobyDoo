@@ -1,9 +1,9 @@
 package scoobydoo.gui;
 
-import java.awt.Color;
 import java.awt.Graphics;
 
 import scoobydoo.engine.gui.Screen;
+import scoobydoo.engine.input.Images;
 
 public class TitleScreen extends Screen {
 
@@ -15,8 +15,7 @@ public class TitleScreen extends Screen {
 	@Override
 	public void draw(Graphics g) {
 		super.draw(g);
-		g.setColor(Color.RED);
-		g.fillRect(10, 10, 10, 10);
+		g.drawImage(Images.test, 0, 0, 50, 50, null);
 	}
 
 	@Override
