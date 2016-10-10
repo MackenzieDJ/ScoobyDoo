@@ -1,4 +1,4 @@
-package scoobydoo.main;
+	package scoobydoo.main;
 
 import java.awt.Font;
 
@@ -9,6 +9,7 @@ import scoobydoo.engine.game.MainWindow;
 import scoobydoo.engine.gui.Screen;
 import scoobydoo.engine.input.Keyboard;
 import scoobydoo.engine.input.Mouse;
+import scoobydoo.gui.Characters;
 import scoobydoo.gui.LoadingScreen;
 
 public class Game {

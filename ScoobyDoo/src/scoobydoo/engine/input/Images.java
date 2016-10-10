@@ -35,6 +35,9 @@ public class Images {
 	public static final Image ScoobyShaggy = loadImage("Scooby+shaggy");
 	public static final Image allInMachine = loadImage("all-in-machine");
 	public static final Image Scooby = loadImage("Scooby");
+	public static final Image FredB = loadImage("FredB");
+	public static final Image Daf = loadImage("Daf");
+	public static final Image velma = loadImage("velma");
 
 	/**
 	 * Loads a image
