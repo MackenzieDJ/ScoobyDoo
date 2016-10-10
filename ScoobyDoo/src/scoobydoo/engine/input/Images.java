@@ -29,6 +29,12 @@ public class Images {
 
 	// Add your images here (not above!)
 	public static final Image test = loadImage("test");
+	public static final Image Title = loadImage("Title");
+	public static final Image ALL = loadImage("ALL");
+	public static final Image Shaggy = loadImage("Shaggy");
+	public static final Image ScoobyShaggy = loadImage("Scooby+shaggy");
+	public static final Image allInMachine = loadImage("all-in-machine");
+	public static final Image Scooby = loadImage("Scooby");
 
 	/**
 	 * Loads a image

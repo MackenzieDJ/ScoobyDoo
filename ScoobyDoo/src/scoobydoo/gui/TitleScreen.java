@@ -8,31 +8,35 @@ import scoobydoo.engine.input.Images;
 
 public class TitleScreen extends Screen {
 
-	private static final int RODAWAY_DISAPPEAR_DELAY = 100;
+	private static final int TITLE_DELAY = 10;
 
 	private int ticksExisted = 0;
 	private ImageDisplay rodaway;
+	private ImageDisplay titleI;
+	private ImageDisplay ALL;
 
 	@Override
 	public void layout() {
-		addButton(width / 2 - 150 / 2, height / 2 - 50 / 2, 150, 50, "Hello World", "hello");
-		addLabel(50, 50, 100, 100, "Hello Scooby", Color.GREEN);
-		rodaway = addImage(0, 0, 50, 50, Images.test);
+		//addButton(width / 2 - 150 / 2, height / 2 - 50 / 2, 150, 50, "Hello World", "hello");
+		addLabel(width/2, (height/2)-40, 30, 1, "Welcome To The Main Game!!!", Color.GREEN);
+		//titleI = addImage(0, 0, width, height, Images.Title);
+		//rodaway = addImage(0, 0, width, height, Images.test);
 	}
 
 	@Override
 	public void onButtonPressed(String buttonId) {
-		if ("hello".equals(buttonId)) {
-			System.out.println("Hello World");
+		if ("start".equals(buttonId)) {
+			System.out.println("Ready To Start");
 		}
 	}
-
+	
+	
 	@Override
 	public void updateTick() {
 		ticksExisted++;
-		if (ticksExisted > RODAWAY_DISAPPEAR_DELAY) {
-			removeComponent(rodaway);
+		if (ticksExisted > TITLE_DELAY) {
+			removeComponent(titleI);
+			addButton(width / 2 - 150 / 2, height / 2 - 50 / 2, 150, 50, "Press To Start", "start");
+		   }
 		}
 	}
-
-}
