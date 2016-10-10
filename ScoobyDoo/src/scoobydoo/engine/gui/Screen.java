@@ -74,6 +74,9 @@ public abstract class Screen {
 		return label;
 	}
 	
+	/**
+	 * Helper method to add an image to the screen. Returns the ImageDisplay created
+	 */
 	public ImageDisplay addImage(int x, int y, int width, int height, Image image) {
 		ImageDisplay display = new ImageDisplay(x, y, width, height, image);
 		addComponent(display);
