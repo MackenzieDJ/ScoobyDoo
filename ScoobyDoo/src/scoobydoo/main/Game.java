@@ -9,7 +9,7 @@ import scoobydoo.engine.game.MainWindow;
 import scoobydoo.engine.gui.Screen;
 import scoobydoo.engine.input.Keyboard;
 import scoobydoo.engine.input.Mouse;
-import scoobydoo.gui.TitleScreen;
+import scoobydoo.gui.LoadingScreen;
 
 public class Game {
 
@@ -32,7 +32,7 @@ public class Game {
 		theFrame = new CustomJFrame(theWindow);
 
 		// Display the title screen
-		openScreen(new TitleScreen());
+		openScreen(new LoadingScreen());
 
 		// The main game loop. One run-through of this loop = one tick
 		isRunning = true;
