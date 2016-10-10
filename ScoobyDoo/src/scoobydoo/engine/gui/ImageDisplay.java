@@ -9,6 +9,7 @@ public class ImageDisplay extends Component {
 
 	public ImageDisplay(int x, int y, int width, int height, Image image) {
 		super(x, y, width, height);
+		this.image = image;
 	}
 
 	public Image getImage() {
