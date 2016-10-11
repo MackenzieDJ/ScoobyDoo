@@ -32,7 +32,7 @@ public class GameLogic {
 			return image;
 		}
 
-		public GangMember randomMember(Random rand, List<GangMember> excluding) {
+		public static GangMember randomMember(Random rand, List<GangMember> excluding) {
 			if (excluding.containsAll(Arrays.asList(values()))) {
 				throw new IllegalArgumentException("No gang members to pick from");
 			}
@@ -44,7 +44,7 @@ public class GameLogic {
 			return chosen;
 		}
 
-		public GangMember randomMember(Random rand) {
+		public static GangMember randomMember(Random rand) {
 			return values()[rand.nextInt(values().length)];
 		}
 	}
