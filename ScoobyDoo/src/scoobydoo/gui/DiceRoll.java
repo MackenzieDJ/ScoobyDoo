@@ -24,14 +24,15 @@ public class DiceRoll extends Screen {
 			Game.openScreen(new Characters());
 			Random Rand = new Random();
 			int people = Rand.nextInt(ai);
-			people++; 
+			people++;
 			System.out.println(people);
 			ai = 6;
 			GameLogic.getAliveMembers().add(GangMember.SCOOBY);
-			int a=1;
-			while(a<=people);{
-			GameLogic.addRandomGangMember(Rand);
-			a++;
+			int a = 1;
+			while (a <= people)
+			{
+				GameLogic.addRandomGangMember(Rand);
+				a++;
 			}
 		}
 	}
