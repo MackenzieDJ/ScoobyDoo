@@ -8,6 +8,10 @@ import java.util.Random;
 
 import scoobydoo.resources.Images;
 
+/**
+ * A class which stores variables for the game logic, and contains functions to
+ * do with the game logic
+ */
 public class GameLogic {
 
 	private GameLogic() {
@@ -15,14 +19,23 @@ public class GameLogic {
 
 	private static List<GangMember> aliveMembers = new ArrayList<GangMember>();
 
+	/**
+	 * Returns a modifiable list of alive gang members
+	 */
 	public static List<GangMember> getAliveMembers() {
 		return aliveMembers;
 	}
 
+	/**
+	 * Brings one single random gang member to life
+	 */
 	public static void addRandomGangMember(Random rand) {
 		aliveMembers.add(GangMember.randomMember(rand, aliveMembers));
 	}
 
+	/**
+	 * A gang member
+	 */
 	public static enum GangMember {
 		SCOOBY(Images.Scooby), SHAGGY(Images.Shaggy), VELMA(Images.velma), DAPHNE(Images.Daf), FRED(Images.FredB);
 
@@ -32,10 +45,16 @@ public class GameLogic {
 			this.image = image;
 		}
 
+		/**
+		 * Gets the image associated with this gang member
+		 */
 		public Image getImage() {
 			return image;
 		}
 
+		/**
+		 * Returns a random gang member not in the list specified
+		 */
 		public static GangMember randomMember(Random rand, List<GangMember> excluding) {
 			if (excluding.containsAll(Arrays.asList(values()))) {
 				throw new IllegalArgumentException("No gang members to pick from");
@@ -48,6 +67,9 @@ public class GameLogic {
 			return chosen;
 		}
 
+		/**
+		 * Returns a random gang member
+		 */
 		public static GangMember randomMember(Random rand) {
 			return values()[rand.nextInt(values().length)];
 		}
