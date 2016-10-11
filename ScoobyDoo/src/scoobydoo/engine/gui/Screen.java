@@ -143,7 +143,7 @@ public abstract class Screen {
 	 * Called to draw this screen
 	 */
 	public void draw(Graphics g) {
-		g.setColor(Color.BLACK);
+		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, width, height);
 		synchronized (components) {
 			for (Component component : components) {
