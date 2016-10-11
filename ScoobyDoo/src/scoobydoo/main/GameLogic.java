@@ -19,7 +19,7 @@ public class GameLogic {
 		return aliveMembers;
 	}
 
-	public void addRandomGangMember(Random rand) {
+	public static void addRandomGangMember(Random rand) {
 		aliveMembers.add(GangMember.randomMember(rand, aliveMembers));
 	}
 
