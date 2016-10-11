@@ -12,11 +12,15 @@ public class GameLogic {
 
 	private GameLogic() {
 	}
-	
+
 	private static List<GangMember> aliveMembers = new ArrayList<GangMember>();
 
 	public static List<GangMember> getAliveMembers() {
 		return aliveMembers;
+	}
+
+	public void addRandomGangMember(Random rand) {
+		aliveMembers.add(GangMember.randomMember(rand, aliveMembers));
 	}
 
 	public static enum GangMember {
