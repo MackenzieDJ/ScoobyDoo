@@ -1,6 +1,7 @@
 package scoobydoo.gui;
 
 import java.awt.Color;
+import java.util.Random;
 
 import scoobydoo.engine.gui.Screen;
 import scoobydoo.main.Game;
@@ -15,9 +16,15 @@ public class DiceRoll extends Screen {
 
 	@Override
 	public void onButtonPressed(String buttonId) {
+		int ai = 4;
 		if ("Roll".equals(buttonId)) {
 			System.out.println("Role Dice");
 			Game.openScreen(new Characters());
+			Random Rand = new Random();
+			int people = Rand.nextInt(ai);
+			people++; 
+			System.out.println(people);
+			ai = 6;
 		}
 	}
 }
