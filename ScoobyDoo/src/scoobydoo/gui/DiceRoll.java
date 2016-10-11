@@ -2,7 +2,6 @@ package scoobydoo.gui;
 
 import java.awt.Color;
 
-import scoobydoo.engine.gui.ImageDisplay;
 import scoobydoo.engine.gui.Screen;
 import scoobydoo.main.Game;
 

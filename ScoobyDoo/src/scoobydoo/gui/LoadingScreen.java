@@ -1,8 +1,8 @@
 package scoobydoo.gui;
 
 import scoobydoo.engine.gui.Screen;
-import scoobydoo.engine.input.Images;
 import scoobydoo.main.Game;
+import scoobydoo.resources.Images;
 
 public class LoadingScreen extends Screen {
 

@@ -1,8 +1,7 @@
 package scoobydoo.gui;
 
 import scoobydoo.engine.gui.Screen;
-import scoobydoo.engine.input.Images;
-
+import scoobydoo.resources.Images;
 
 public class Characters extends Screen {
 
