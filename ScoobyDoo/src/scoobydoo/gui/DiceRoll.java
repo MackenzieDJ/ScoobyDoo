@@ -21,7 +21,6 @@ public class DiceRoll extends Screen {
 		int ai = 4;
 		if ("Roll".equals(buttonId)) {
 			System.out.println("Role Dice");
-			Game.openScreen(new Characters());
 			Random Rand = new Random();
 			int people = Rand.nextInt(ai);
 			people++;
@@ -34,6 +33,7 @@ public class DiceRoll extends Screen {
 				GameLogic.addRandomGangMember(Rand);
 				a++;
 			}
+			Game.openScreen(new Characters());
 		}
 	}
 }

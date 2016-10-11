@@ -1,29 +1,32 @@
 package scoobydoo.gui;
 
-import scoobydoo.engine.gui.Screen;
-import scoobydoo.resources.Images;
+import java.awt.Image;
+import java.util.List;
 
+import scoobydoo.engine.gui.Screen;
+import scoobydoo.main.GameLogic;
+import scoobydoo.main.GameLogic.GangMember;
+import scoobydoo.resources.Images;
 
 public class Characters extends Screen {
 
-	
-
 	@Override
 	public void layout() {
-		
-		addImage(0,0,width/3, height/2, Images.Shaggy);
-		addImage((((width/3)+(width/3)/2)-width/6), 0, width/3, height/2, Images.velma);
-		addImage((width)-width/3,0,width/3, height/2, Images.Scooby);
-		
-		addImage(0,height/2, width/3, height/2, Images.FredB);
-		addImage((((width/3)+(width/3)/2)-width/6), height/2, width/3, height/2, Images.Title);
-		addImage((width)-width/3,height/2,width/3, height/2, Images.Daf);
-	
-		//addImage(0,0,width/4, height/3, Images.Shaggy);
-		//addImage((width/2)-(width/8), 0, width/4, height/3, Images.Title);
-		//addImage((width)-width/4,0,width/4, height/3, Images.Scooby);
+		List<GangMember> aliveMembers = GameLogic.getAliveMembers();
+
+		for (int i = 0; i < 6; i++) {
+			int x = (i % 3) * width / 3;
+			int y = (i / 3) * height / 2;
+			int imageWidth = width / 3;
+			int imageHeight = height / 2;
+			Image image;
+			if (i >= aliveMembers.size()) {
+				image = Images.test;
+			} else {
+				image = aliveMembers.get(i).getImage();
+			}
+			addImage(x, y, imageWidth, imageHeight, image);
+		}
 	}
-
-
 
 }
