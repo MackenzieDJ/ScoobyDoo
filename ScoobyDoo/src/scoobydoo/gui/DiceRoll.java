@@ -5,6 +5,8 @@ import java.util.Random;
 
 import scoobydoo.engine.gui.Screen;
 import scoobydoo.main.Game;
+import scoobydoo.main.GameLogic;
+import scoobydoo.main.GameLogic.GangMember;
 
 public class DiceRoll extends Screen {
 
@@ -25,6 +27,12 @@ public class DiceRoll extends Screen {
 			people++; 
 			System.out.println(people);
 			ai = 6;
+			GameLogic.getAliveMembers().add(GangMember.SCOOBY);
+			int a=1;
+			while(a<=people);{
+			GameLogic.addRandomGangMember(Rand);
+			a++;
+			}
 		}
 	}
 }
