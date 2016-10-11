@@ -9,10 +9,15 @@ import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
+import scoobydoo.resources.Images;
+
 /**
- * This class contains all the images used in the game
+ * This class is used to load images
  */
-public class Images {
+public class ImgLoader {
+
+	private ImgLoader() {
+	}
 
 	private static final Image FAILED_IMAGE = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
 
@@ -26,18 +31,6 @@ public class Images {
 		g.fillRect(0, 8, 8, 8);
 		g.dispose();
 	}
-
-	// Add your images here (not above!)
-	public static final Image test = loadImage("test");
-	public static final Image Title = loadImage("Title");
-	public static final Image ALL = loadImage("ALL");
-	public static final Image Shaggy = loadImage("Shaggy");
-	public static final Image ScoobyShaggy = loadImage("Scooby+shaggy");
-	public static final Image allInMachine = loadImage("all-in-machine");
-	public static final Image Scooby = loadImage("Scooby");
-	public static final Image FredB = loadImage("FredB");
-	public static final Image Daf = loadImage("Daf");
-	public static final Image velma = loadImage("velma");
 
 	/**
 	 * Loads a image
@@ -57,5 +50,4 @@ public class Images {
 			return FAILED_IMAGE;
 		}
 	}
-
 }
