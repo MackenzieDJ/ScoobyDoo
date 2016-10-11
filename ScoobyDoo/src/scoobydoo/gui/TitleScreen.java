@@ -6,8 +6,6 @@ import scoobydoo.engine.gui.Screen;
 import scoobydoo.main.Game;
 
 public class TitleScreen extends Screen {
-	private int ticksUntilChars = 50;
-	private ImageDisplay ALL;
 
 	@Override
 	public void layout() {
