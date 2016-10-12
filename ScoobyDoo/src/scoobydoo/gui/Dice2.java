@@ -2,6 +2,8 @@ package scoobydoo.gui;
 
 
 
+import java.util.Random;
+
 import scoobydoo.engine.gui.Screen;
 import scoobydoo.resources.Images;
 
@@ -19,7 +21,10 @@ public class Dice2 extends Screen {
 	public void onButtonPressed(String buttonId) {
 		if ("Roll".equals(buttonId)) {
 			System.out.println("Roll2");
-			
+			Random Rand = new Random();
+			int option1 = Rand.nextInt(6);
+			int option = option1+1;
+			System.out.println("OPTION + " + option);
 		}
 	}
 }

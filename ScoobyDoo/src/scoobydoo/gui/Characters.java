@@ -15,7 +15,7 @@ public class Characters extends Screen {
 	public void layout() {
 		List<GangMember> aliveMembers = GameLogic.getAliveMembers();
 
-		addButton(width -200 , height-50, 200, 50, "Next", "Next");
+		addButton(width -205 , height-70, 200, 50, "Next", "Next");
 
 		for (int i = 0; i < 5; i++) {
 			int x = (i % 3) * width / 3;
