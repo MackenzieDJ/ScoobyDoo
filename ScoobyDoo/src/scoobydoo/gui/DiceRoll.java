@@ -7,13 +7,16 @@ import scoobydoo.engine.gui.Screen;
 import scoobydoo.main.Game;
 import scoobydoo.main.GameLogic;
 import scoobydoo.main.GameLogic.GangMember;
+import scoobydoo.resources.Images;
 
 public class DiceRoll extends Screen {
+	
 
 	@Override
 	public void layout() {
-		addLabel(width / 2, (height / 2) - 40, 30, 1, "PRESS BELOW TO ROLL!!!", Color.GREEN);
-		addButton(width / 2 - 200 / 2, height / 2 - 50 / 2, 200, 50, "ROLL!", "Roll");
+			addImage(0, 0, width, height, Images.Background);
+		addLabel(width / 2, (height / 3) - 20, 30, 1, "PRESS BELOW TO ROLL!!!", Color.GREEN);
+		addButton(width / 2 - 200 / 2, height / 3 , 200, 50, "ROLL!", "Roll");
 	}
 
 	@Override

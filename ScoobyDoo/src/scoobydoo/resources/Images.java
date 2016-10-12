@@ -19,5 +19,7 @@ public class Images {
 	public static final Image FredB = loadImage("FredB");
 	public static final Image Daf = loadImage("Daf");
 	public static final Image velma = loadImage("velma");
+	public static final Image Background = loadImage("Background");
+	public static final Image DICE2 = loadImage("DICE2");
 
 }
