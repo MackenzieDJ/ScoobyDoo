@@ -9,6 +9,7 @@ import scoobydoo.engine.game.MainWindow;
 import scoobydoo.engine.gui.Screen;
 import scoobydoo.engine.input.Keyboard;
 import scoobydoo.engine.input.Mouse;
+import scoobydoo.engine.sound.SoundManager;
 import scoobydoo.gui.LoadingScreen;
 
 public class Game {
@@ -27,6 +28,14 @@ public class Game {
 	private static Screen theScreen;
 
 	public static void main(String[] args) {
+		// Loop the music
+		new Runnable() {
+			@Override
+			public void run() {
+				SoundManager.playSound("suspense", this);
+			}
+		}.run();
+
 		// Setup the frame
 		theWindow = new MainWindow();
 		theFrame = new CustomJFrame(theWindow);
@@ -55,6 +64,7 @@ public class Game {
 	}
 
 	public static void shutdown() {
+		SoundManager.closeAllSounds();
 		isRunning = false;
 	}
 
