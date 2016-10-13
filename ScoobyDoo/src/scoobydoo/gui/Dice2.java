@@ -8,6 +8,7 @@ import scoobydoo.engine.gui.Screen;
 import scoobydoo.resources.Images;
 
 public class Dice2 extends Screen {
+	
 
 	@Override
 	public void layout() {

@@ -22,6 +22,7 @@ public class TitleScreen extends Screen {
 				Color.RED.darker(), Color.WHITE, new IProgress.FieldValue(this, "progress"), 170);
 		testProgressBar.setText("Test progress bar");
 		addComponent(testProgressBar);
+		
 	}
 
 	@Override
@@ -35,5 +36,6 @@ public class TitleScreen extends Screen {
 	@Override
 	public void updateTick() {
 		progress++;
+		System.out.println(progress);
 	}
 }
