@@ -24,7 +24,7 @@ public class Characters extends Screen {
 			int imageHeight = height / 2;
 			Image image;
 			if (i >= aliveMembers.size()) {
-				image = Images.Title;
+				image = Images.test;
 			} else {
 				image = aliveMembers.get(i).getImage();
 			}

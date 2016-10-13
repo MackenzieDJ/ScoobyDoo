@@ -22,9 +22,11 @@ public class Dice2 extends Screen {
 		if ("Roll".equals(buttonId)) {
 			System.out.println("Roll2");
 			Random Rand = new Random();
-			int option1 = Rand.nextInt(6);
-			int option = option1+1;
-			System.out.println("OPTION + " + option);
+			int option = Rand.nextInt(6);
+			int option3 = Rand.nextInt(6);
+			int option1 = option+1;
+			int option2 = option3+1;
+			System.out.println("OPTION " + option1+" + "+option2);
 		}
 	}
 }
