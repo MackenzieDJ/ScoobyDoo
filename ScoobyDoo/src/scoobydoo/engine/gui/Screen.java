@@ -13,6 +13,8 @@ import java.util.List;
  */
 public abstract class Screen {
 
+	protected static final Color BACKGROUND_COLOR = new Color(0, 64, 0);
+	
 	protected int width;
 	protected int height;
 	private List<Component> components = Collections.synchronizedList(new ArrayList<Component>());
@@ -143,7 +145,7 @@ public abstract class Screen {
 	 * Called to draw this screen
 	 */
 	public void draw(Graphics g) {
-		g.setColor(Color.WHITE);
+		g.setColor(BACKGROUND_COLOR);
 		g.fillRect(0, 0, width, height);
 		synchronized (components) {
 			for (Component component : components) {
