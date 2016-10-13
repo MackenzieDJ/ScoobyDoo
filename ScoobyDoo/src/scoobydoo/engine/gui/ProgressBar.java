@@ -12,27 +12,19 @@ public class ProgressBar extends Component {
 	private Color indicatorColor;
 	private Color trackColor;
 	private Color textColor;
-	private int progress;
+	private IProgress progress;
 	private int maxProgress;
 	private String text;
 
 	public ProgressBar(int x, int y, int width, int height, Color indicatorColor, Color trackColor, Color textColor,
-			int maxProgress) {
+			IProgress progress, int maxProgress) {
 		super(x, y, width, height);
 		this.indicatorColor = indicatorColor;
 		this.trackColor = trackColor;
 		this.textColor = textColor;
-		this.progress = 0;
+		this.progress = progress;
 		this.maxProgress = maxProgress;
 		this.text = "";
-	}
-
-	public int getProgress() {
-		return progress;
-	}
-
-	public void setProgress(int progress) {
-		this.progress = progress;
 	}
 
 	public int getMaxProgress() {
@@ -57,6 +49,12 @@ public class ProgressBar extends Component {
 		g.fillRect(getX(), getY(), getWidth(), getHeight());
 
 		g.setColor(indicatorColor);
+		int progress = this.progress.getProgress();
+		if (progress < 0) {
+			progress = 0;
+		} else if (progress > maxProgress) {
+			progress = maxProgress;
+		}
 		g.fillRect(getX(), getY(), progress * getWidth() / maxProgress, getHeight());
 
 		g.setColor(OUTLINE_COLOR);
