@@ -3,10 +3,20 @@ package scoobydoo.engine.gui;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+/**
+ * Implementations of this class are used to track progress for progress bars
+ */
 public interface IProgress {
 
+	/**
+	 * Returns the current progress
+	 */
 	int getProgress();
 
+	/**
+	 * An implementation of <code>IProgress</code> that uses the value of a
+	 * field to get its progress
+	 */
 	public static class FieldValue implements IProgress {
 		private Object instance;
 		private Field field;
@@ -38,6 +48,10 @@ public interface IProgress {
 		}
 	}
 
+	/**
+	 * An implementation of <code>IProgress</code> that calls a method to get
+	 * its progress
+	 */
 	public static class CallMethod implements IProgress {
 		private Object instance;
 		private Method method;
