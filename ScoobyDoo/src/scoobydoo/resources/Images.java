@@ -3,22 +3,17 @@ package scoobydoo.resources;
 import static scoobydoo.engine.input.ImgLoader.loadImage;
 
 import java.awt.Image;
-import java.util.ArrayList;
 
 /**
  * This class contains all the images used in the game
  */
 public class Images {
-	
-    public static final Image Dice1 = loadImage("one");
-    public static final Image Dice2 = loadImage("two");
-    public static final Image Dice3 = loadImage("three");
-    public static final Image Dice4 = loadImage("four");
-    public static final Image Dice5 = loadImage("five");
-    public static final Image Dice6 = loadImage("six");
-    
-    public static final Image Grave = loadImage("Grave");
-    
+
+	public static final Image[] dice = { loadImage("one"), loadImage("two"), loadImage("three"), loadImage("four"),
+			loadImage("five"), loadImage("six") };
+
+	public static final Image Grave = loadImage("Grave");
+
 	public static final Image test = loadImage("test");
 	public static final Image Title = loadImage("Title");
 	public static final Image ALL = loadImage("ALL");
@@ -33,6 +28,5 @@ public class Images {
 	public static final Image DICE2 = loadImage("DICE1");
 	public static final Image scoob = loadImage("scoob");
 	public static final Image van = loadImage("VAN");
-	
 
 }
