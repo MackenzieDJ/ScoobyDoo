@@ -27,7 +27,6 @@ public class CustomJFrame extends JFrame {
 			@Override
 			public void windowClosing(WindowEvent e) {
 				// This runs when the user presses the 'x' button
-				dispose();
 				Game.shutdown();
 			}
 		});

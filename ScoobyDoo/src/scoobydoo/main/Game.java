@@ -11,7 +11,6 @@ import scoobydoo.engine.input.Keyboard;
 import scoobydoo.engine.input.Mouse;
 import scoobydoo.engine.sound.SoundManager;
 import scoobydoo.gui.LoadingScreen;
-import scoobydoo.gui.Stats;
 
 public class Game {
 
@@ -66,6 +65,7 @@ public class Game {
 
 	public static void shutdown() {
 		SoundManager.closeAllSounds();
+		theFrame.dispose();
 		isRunning = false;
 	}
 

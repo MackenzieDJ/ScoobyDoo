@@ -37,7 +37,7 @@ public class TitleScreen extends Screen {
 			Game.openScreen(new DiceRoll());
 		}
 		if ("Quit".equals(buttonId)) {
-			System.exit(0);
+			Game.shutdown();
 		}
 	}
 
