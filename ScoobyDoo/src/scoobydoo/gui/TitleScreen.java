@@ -34,7 +34,7 @@ public class TitleScreen extends Screen {
 	public void onButtonPressed(String buttonId) {
 		if ("start".equals(buttonId)) {
 			System.out.println("Ready To Start");
-			Game.openScreen(new DiceRoll());
+			Game.openScreen(new SingleDiceRollScreen());
 		}
 		if ("Quit".equals(buttonId)) {
 			Game.shutdown();

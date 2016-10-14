@@ -6,7 +6,7 @@ import scoobydoo.engine.gui.Screen;
 import scoobydoo.main.Game;
 import scoobydoo.resources.Images;
 
-public class Dice2 extends Screen {
+public class DoubleDiceRollScreen extends Screen {
 
 	@Override
 	public void layout() {
@@ -26,7 +26,7 @@ public class Dice2 extends Screen {
 			int option1 = option + 1;
 			int option2 = option3 + 1;
 			System.out.println("OPTION " + option1 + " + " + option2);
-			Game.openScreen(new Stats());
+			Game.openScreen(new StatsScreen());
 		}
 	}
 }

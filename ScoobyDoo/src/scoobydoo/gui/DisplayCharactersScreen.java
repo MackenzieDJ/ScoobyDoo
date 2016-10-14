@@ -9,7 +9,7 @@ import scoobydoo.main.GameLogic;
 import scoobydoo.main.GameLogic.GangMember;
 import scoobydoo.resources.Images;
 
-public class Characters extends Screen {
+public class DisplayCharactersScreen extends Screen {
 
 	@Override
 	public void layout() {
@@ -35,8 +35,8 @@ public class Characters extends Screen {
 	@Override
 	public void onButtonPressed(String buttonId) {
 		if ("Next".equals(buttonId)) {
-			System.out.println("Dice2");
-			Game.openScreen(new Dice2());
+			System.out.println("DoubleDiceRollScreen");
+			Game.openScreen(new DoubleDiceRollScreen());
 		}
 	}
 

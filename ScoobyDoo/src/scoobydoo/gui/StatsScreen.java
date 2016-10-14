@@ -8,7 +8,7 @@ import scoobydoo.engine.gui.ProgressBar;
 import scoobydoo.engine.gui.Screen;
 import scoobydoo.main.GameLogic;
 
-public class Stats extends Screen {
+public class StatsScreen extends Screen {
 
 	@Override
 	public void layout() {

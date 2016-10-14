@@ -9,7 +9,7 @@ import scoobydoo.main.GameLogic;
 import scoobydoo.main.GameLogic.GangMember;
 import scoobydoo.resources.Images;
 
-public class DiceRoll extends Screen {
+public class SingleDiceRollScreen extends Screen {
 	
 
 	@Override
@@ -36,7 +36,7 @@ public class DiceRoll extends Screen {
 				GameLogic.addRandomGangMember(Rand);
 				a++;
 			}
-			Game.openScreen(new Characters());
+			Game.openScreen(new DisplayCharactersScreen());
 		}
 	}
 }
