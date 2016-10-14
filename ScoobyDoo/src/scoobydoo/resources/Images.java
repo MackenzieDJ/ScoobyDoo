@@ -31,6 +31,8 @@ public class Images {
 	public static final Image velma = loadImage("velma");
 	public static final Image Background = loadImage("Background");
 	public static final Image DICE2 = loadImage("DICE1");
+	public static final Image scoob = loadImage("scoob");
+	public static final Image van = loadImage("VAN");
 	
 
 }
