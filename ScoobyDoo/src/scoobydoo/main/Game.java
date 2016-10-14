@@ -1,6 +1,8 @@
 package scoobydoo.main;
 
 import java.awt.Font;
+import java.awt.Point;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 
@@ -77,12 +79,20 @@ public class Game {
 		Keyboard.updateTick();
 		Mouse.updateTick();
 
-		if (Keyboard.isKeyDown("test")) {
-			System.out.println("Test key held down");
-		}
-
-		// Update the current screen
+		// Do screen stuff
 		if (theScreen != null) {
+			// Handle mouse input for the screen for left and right click
+			Point mouseLocation = Mouse.getMouseLocation();
+			for (int button = MouseEvent.BUTTON1; button <= MouseEvent.BUTTON2; button++) {
+				if (Mouse.isButtonPressed(button)) {
+					theScreen.mousePressed(mouseLocation.x, mouseLocation.y, button);
+				}
+				if (Mouse.isButtonReleased(button)) {
+					theScreen.mouseReleased(mouseLocation.x, mouseLocation.y, button);
+				}
+			}
+
+			// Update the screen
 			theScreen.updateTick();
 		}
 
