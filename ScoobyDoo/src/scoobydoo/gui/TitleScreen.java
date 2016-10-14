@@ -23,7 +23,8 @@ public class TitleScreen extends Screen {
 		addButton(width / 2 - 200 / 2, height - 125, 200, 50, "QUIT", "Quit");
 
 		ProgressBar testProgressBar = new ProgressBar(width / 2 - 300 / 2, height - 50, 300, 40, Color.GREEN.darker(),
-				Color.GREEN.darker().darker(), Color.WHITE, new IProgress.FieldValue(this, "enjoyTheGameProgress"), 50);
+				Color.GREEN.darker().darker(), Color.WHITE,
+				IProgress.FieldValue.nonStaticField(this, "enjoyTheGameProgress"), 50);
 		testProgressBar.setText("ENJOY THE GAME!!!");
 		addComponent(testProgressBar);
 

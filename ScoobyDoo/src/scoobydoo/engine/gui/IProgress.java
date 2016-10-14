@@ -4,24 +4,37 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
- * Implementations of this class are used to track progress for progress bars
+ * Implementations of this class are used to track enjoyTheGameProgress for
+ * enjoyTheGameProgress bars
  */
 public interface IProgress {
 
 	/**
-	 * Returns the current progress
+	 * Returns the current enjoyTheGameProgress
 	 */
 	int getProgress();
 
 	/**
 	 * An implementation of <code>IProgress</code> that uses the value of a
-	 * field to get its progress
+	 * field to get its enjoyTheGameProgress
 	 */
 	public static class FieldValue implements IProgress {
 		private Object instance;
 		private Field field;
 
-		public FieldValue(Class<?> owningClass, Object instance, String fieldName) {
+		public static FieldValue nonStaticField(Class<?> owningClass, Object instance, String fieldName) {
+			return new FieldValue(owningClass, instance, fieldName);
+		}
+
+		public static FieldValue nonStaticField(Object instance, String fieldName) {
+			return nonStaticField(instance.getClass(), instance, fieldName);
+		}
+
+		public static FieldValue staticField(Class<?> owningClass, String fieldName) {
+			return new FieldValue(owningClass, null, fieldName);
+		}
+
+		private FieldValue(Class<?> owningClass, Object instance, String fieldName) {
 			this.instance = instance;
 			try {
 				this.field = owningClass.getDeclaredField(fieldName);
@@ -32,10 +45,6 @@ public interface IProgress {
 			} catch (Exception e) {
 				throw new RuntimeException("Invalid field", e);
 			}
-		}
-
-		public FieldValue(Object instance, String fieldName) {
-			this(instance.getClass(), instance, fieldName);
 		}
 
 		@Override
@@ -50,7 +59,7 @@ public interface IProgress {
 
 	/**
 	 * An implementation of <code>IProgress</code> that calls a method to get
-	 * its progress
+	 * its enjoyTheGameProgress
 	 */
 	public static class CallMethod implements IProgress {
 		private Object instance;

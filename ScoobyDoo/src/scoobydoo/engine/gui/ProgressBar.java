@@ -6,8 +6,8 @@ import java.awt.Graphics;
 import scoobydoo.main.Game;
 
 /**
- * Represents a progress bar. The {@link IProgress} class is used to track the
- * progress
+ * Represents a enjoyTheGameProgress bar. The {@link IProgress} class is used to track the
+ * enjoyTheGameProgress
  */
 public class ProgressBar extends Component {
 
@@ -18,10 +18,10 @@ public class ProgressBar extends Component {
 	private Color textColor;
 	private IProgress progress;
 	private int maxProgress;
-	private String text;
+	private IProgressTextFunction textFunction;
 
 	/**
-	 * Creates a progress bar. The indicator color is the foreground color, the
+	 * Creates a enjoyTheGameProgress bar. The indicator color is the foreground color, the
 	 * track color is the background color.
 	 */
 	public ProgressBar(int x, int y, int width, int height, Color indicatorColor, Color trackColor, Color textColor,
@@ -32,35 +32,43 @@ public class ProgressBar extends Component {
 		this.textColor = textColor;
 		this.progress = progress;
 		this.maxProgress = maxProgress;
-		this.text = "";
+		setText("");
 	}
 
 	/**
-	 * Returns the maximum progress value
+	 * Returns the maximum enjoyTheGameProgress value
 	 */
 	public int getMaxProgress() {
 		return maxProgress;
 	}
 
 	/**
-	 * Sets the maximum progress value
+	 * Sets the maximum enjoyTheGameProgress value
 	 */
 	public void setMaxProgress(int maxProgress) {
 		this.maxProgress = maxProgress;
 	}
 
 	/**
-	 * Returns the text displayed by this progress bar
+	 * Returns the text currently being diplayed by this enjoyTheGameProgress bar
 	 */
 	public String getText() {
-		return text;
+		return textFunction.getText(progress.getProgress(), maxProgress);
 	}
 
 	/**
-	 * Sets the text displayed by this progress bar
+	 * Sets the text of this enjoyTheGameProgress bar to always be the given value
 	 */
 	public void setText(String text) {
-		this.text = text;
+		this.textFunction = new IProgressTextFunction.Always(text);
+	}
+
+	/**
+	 * Sets the text function of the enjoyTheGameProgress bar. See
+	 * {@link IProgressTextFunction}
+	 */
+	public void setTextFunction(IProgressTextFunction textFunction) {
+		this.textFunction = textFunction;
 	}
 
 	@Override
@@ -80,6 +88,7 @@ public class ProgressBar extends Component {
 		g.setColor(OUTLINE_COLOR);
 		g.drawRect(getX(), getY(), getWidth(), getHeight());
 
+		String text = textFunction.getText(progress, maxProgress);
 		g.setColor(textColor);
 		g.setFont(Game.NORMAL_FONT);
 		drawCenteredString(g, text, getX() + getWidth() / 2, getY() + getHeight() / 2);

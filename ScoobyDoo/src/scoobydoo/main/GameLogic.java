@@ -18,6 +18,11 @@ public class GameLogic {
 	}
 
 	private static List<GangMember> aliveMembers = new ArrayList<GangMember>();
+	
+	public static int survivorsFound = 0;
+	public static int gangHealth = 100;
+	public static int ammunition = 50;
+	public static int scoobySnacksLeft = 70;
 
 	/**
 	 * Returns a modifiable list of alive gang members
