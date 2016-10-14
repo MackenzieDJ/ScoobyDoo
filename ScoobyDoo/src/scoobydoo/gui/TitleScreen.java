@@ -10,7 +10,8 @@ import scoobydoo.resources.Images;
 
 public class TitleScreen extends Screen {
 
-	public int progress = 0;
+	public int enjoyTheGameProgress = 0;
+	private int enjoyTheGameProgressDirection = 1;
 
 	@Override
 	public void layout() {
@@ -21,11 +22,9 @@ public class TitleScreen extends Screen {
 
 		addButton(width / 2 - 200 / 2, height - 125, 200, 50, "QUIT", "Quit");
 
-		// This progress bar accepts values 0-170 and uses the field named
-		// "progress" in this class.
-		ProgressBar testProgressBar = new ProgressBar(width / 2 - 300 / 2, height - 50, 300, 40, Color.RED,
-				Color.RED.darker(), Color.WHITE, new IProgress.FieldValue(this, "progress"), 170);
-		testProgressBar.setText("ENJOY THE GAME");
+		ProgressBar testProgressBar = new ProgressBar(width / 2 - 300 / 2, height - 50, 300, 40, Color.GREEN.darker(),
+				Color.GREEN.darker().darker(), Color.WHITE, new IProgress.FieldValue(this, "enjoyTheGameProgress"), 50);
+		testProgressBar.setText("ENJOY THE GAME!!!");
 		addComponent(testProgressBar);
 
 	}
@@ -43,7 +42,11 @@ public class TitleScreen extends Screen {
 
 	@Override
 	public void updateTick() {
-		progress++;
-
+		enjoyTheGameProgress += enjoyTheGameProgressDirection;
+		if (enjoyTheGameProgress == 50) {
+			enjoyTheGameProgressDirection = -1;
+		} else if (enjoyTheGameProgress == 0) {
+			enjoyTheGameProgressDirection = 1;
+		}
 	}
 }
