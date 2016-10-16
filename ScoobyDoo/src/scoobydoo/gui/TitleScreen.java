@@ -15,6 +15,7 @@ public class TitleScreen extends Screen {
 
 	@Override
 	public void layout() {
+		
 		addImage(0, 0, width, height, Images.allInMachine);
 
 		addLabel((width / 2) - 15, height - 220, 30, 1, "Welcome To The Main Game", Color.RED);
@@ -27,7 +28,6 @@ public class TitleScreen extends Screen {
 				IProgress.FieldValue.nonStaticField(this, "enjoyTheGameProgress"), 50);
 		testProgressBar.setText("ENJOY THE GAME!!!");
 		addComponent(testProgressBar);
-
 	}
 
 	@Override
@@ -38,6 +38,10 @@ public class TitleScreen extends Screen {
 		}
 		if ("Quit".equals(buttonId)) {
 			Game.shutdown();
+		}
+if ("Rules".equals(buttonId)) {
+			
+			Game.openScreen(new RulesScreen());
 		}
 	}
 

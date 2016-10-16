@@ -13,7 +13,7 @@ import java.util.List;
  */
 public abstract class Screen {
 
-	protected static final Color BACKGROUND_COLOR = new Color(0, 64, 0);
+	protected static final Color BACKGROUND_COLOR = new Color(22, 244, 59);
 	
 	protected int width;
 	protected int height;

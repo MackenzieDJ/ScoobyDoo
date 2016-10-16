@@ -11,6 +11,9 @@ public class Images {
 
 	public static final Image[] dice = { loadImage("one"), loadImage("two"), loadImage("three"), loadImage("four"),
 			loadImage("five"), loadImage("six") };
+	
+	public static final Image[] DoubleRoll = { loadImage("Zombie"), loadImage("Ammo"), loadImage("Zombie"), loadImage("Snack"),
+			loadImage("Nothing"), loadImage("Survivor") };
 
 	public static final Image Grave = loadImage("Grave");
 
@@ -28,5 +31,6 @@ public class Images {
 	public static final Image DICE2 = loadImage("DICE1");
 	public static final Image scoob = loadImage("scoob");
 	public static final Image van = loadImage("VAN");
+	public static final Image logo = loadImage("logo");
 
 }
