@@ -34,7 +34,7 @@ public class Game {
 		new Runnable() {
 			@Override
 			public void run() {
-			//	SoundManager.playSound("suspense", this);
+				// SoundManager.playSound("suspense", this);
 			}
 		}.run();
 
@@ -82,12 +82,18 @@ public class Game {
 		// Do screen stuff
 		if (theScreen != null) {
 			// Handle mouse input for the screen for left and right click
-			Point mouseLocation = Mouse.getMouseLocation();
+			Point mouseLocation = null;
 			for (int button = MouseEvent.BUTTON1; button <= MouseEvent.BUTTON2; button++) {
 				if (Mouse.isButtonPressed(button)) {
+					if (mouseLocation == null) {
+						mouseLocation = Mouse.getMouseLocation();
+					}
 					theScreen.mousePressed(mouseLocation.x, mouseLocation.y, button);
 				}
 				if (Mouse.isButtonReleased(button)) {
+					if (mouseLocation == null) {
+						mouseLocation = Mouse.getMouseLocation();
+					}
 					theScreen.mouseReleased(mouseLocation.x, mouseLocation.y, button);
 				}
 			}
