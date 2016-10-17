@@ -1,7 +1,6 @@
 package scoobydoo.gui;
 
 import java.awt.Color;
-import java.util.Random;
 
 import scoobydoo.engine.gui.IProgress;
 import scoobydoo.engine.gui.IProgressTextFunction;
@@ -10,7 +9,6 @@ import scoobydoo.engine.gui.Screen;
 import scoobydoo.main.Game;
 import scoobydoo.main.GameLogic;
 import scoobydoo.resources.Images;
-import scoobydoo.gui.DoubleDiceRollScreen;
 
 public class StatsScreen extends Screen {
 
@@ -53,27 +51,27 @@ public class StatsScreen extends Screen {
 		addComponent(SurvivorProgressBar);
 
 		addLabel(width - 170, 350, 30, 1, "Survivors Found!!!", Color.RED);
-		
-		//Dice Rolled
-		addImage(210, height-50, 50, 50, Images.dice[(Game.option1)-1]);
-		addImage(width-260, height-50, 50, 50, Images.dice[(Game.option2)-1]);
-		addLabel(300, height-25, 30, 1, "Last Roll", Color.RED);
-		
-		//Actions
-		addImage(50, 50, 175, 175, Images.DoubleRoll[(Game.option1)-1]);
-		addImage(50, 225, 200, 175, Images.DoubleRoll[(Game.option2)-1]);
+
+		// Dice Rolled
+		addImage(210, height - 50, 50, 50, Images.dice[GameLogic.getRoll1() - 1]);
+		addImage(width - 260, height - 50, 50, 50, Images.dice[GameLogic.getRoll2() - 1]);
+		addLabel(300, height - 25, 30, 1, "Last Roll", Color.RED);
+
+		// Actions
+		addImage(50, 50, 175, 175, GameLogic.getObject1().getImage());
+		addImage(50, 225, 200, 175, GameLogic.getObject2().getImage());
 	}
+
 	@Override
 	public void onButtonPressed(String buttonId) {
-		
+
 		if ("Continue".equals(buttonId)) {
-	
+
 			Game.openScreen(new DisplayCharactersScreen());
 		}
 		if ("Rules".equals(buttonId)) {
-			
+
 			Game.openScreen(new RulesScreen());
 		}
 	}
 }
-

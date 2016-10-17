@@ -26,7 +26,37 @@ public class GameLogic {
 	public static int gangHealth = 100;
 	public static int ammunition = 50;
 	public static int scoobySnacksLeft = 70;
-
+	
+	private static int roll1;
+	private static int roll2;
+	private static EnumObject object1;
+	private static EnumObject object2;
+	
+	public static int getRoll1() {
+		return roll1;
+	}
+	
+	public static int getRoll2() {
+		return roll2;
+	}
+	
+	public static EnumObject getObject1() {
+		return object1;
+	}
+	
+	public static EnumObject getObject2() {
+		return object2;
+	}
+	
+	public static void setRoll1(int roll1) {
+		GameLogic.roll1 = roll1;
+		object1 = EnumObject.getByDiceRoll(roll1);
+	}
+	
+	public static void setRoll2(int roll2) {
+		GameLogic.roll2 = roll1;
+		object2 = EnumObject.getByDiceRoll(roll2);
+	}
 
 	/**
 	 * Returns a modifiable list of alive gang members

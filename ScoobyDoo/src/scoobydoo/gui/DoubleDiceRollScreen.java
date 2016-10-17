@@ -6,6 +6,7 @@ import java.util.Random;
 import scoobydoo.engine.gui.Screen;
 import scoobydoo.engine.sound.SoundManager;
 import scoobydoo.main.Game;
+import scoobydoo.main.GameLogic;
 import scoobydoo.resources.Images;
 
 public class DoubleDiceRollScreen extends Screen {
@@ -15,7 +16,7 @@ public class DoubleDiceRollScreen extends Screen {
 
 		addImage(0, 0, width, height, Images.DICE2);
 		addButton(width / 2 - 200 / 2, height / 3 + 50, 200, 50, "ROLL!", "Roll");
-		addLabel(width / 2 -12, (height / 3)+40, 24, 1, "Roll To See What Happens", Color.RED);
+		addLabel(width / 2 - 12, (height / 3) + 40, 24, 1, "Roll To See What Happens", Color.RED);
 
 	}
 
@@ -28,9 +29,9 @@ public class DoubleDiceRollScreen extends Screen {
 			Random Rand = new Random();
 			int option = Rand.nextInt(6);
 			int option3 = Rand.nextInt(6);
-			Game.option1 = option + 1;
-			Game.option2 = option3 + 1;
-			System.out.println("OPTION " + Game.option1 + " + " + Game.option2);
+			GameLogic.setRoll1(option + 1);
+			GameLogic.setRoll2(option3 + 1);
+			System.out.println("OPTION " + GameLogic.getRoll1() + " + " + GameLogic.getRoll2());
 			Game.openScreen(new StatsScreen());
 		}
 

@@ -32,5 +32,10 @@ public class Images {
 	public static final Image scoob = loadImage("scoob");
 	public static final Image van = loadImage("VAN");
 	public static final Image logo = loadImage("logo");
+	public static final Image zombie = loadImage("Zombie");
+	public static final Image ammo = loadImage("Ammo");
+	public static final Image snack = loadImage("Snack");
+	public static final Image nothing = loadImage("Nothing");
+	public static final Image survivor = loadImage("Survivor");
 
 }

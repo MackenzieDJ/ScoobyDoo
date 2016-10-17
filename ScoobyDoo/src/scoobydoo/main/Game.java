@@ -28,8 +28,6 @@ public class Game {
 	public static MainWindow theWindow;
 	private static boolean isRunning;
 	private static Screen theScreen;
-	public static int option1;
-	public static int option2;
 
 	public static void main(String[] args) {
 		// Loop the music
