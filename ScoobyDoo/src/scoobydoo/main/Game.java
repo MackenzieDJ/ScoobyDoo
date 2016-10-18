@@ -106,6 +106,10 @@ public class Game {
 		}
 
 		// Repaint the window
+		redraw();
+	}
+	
+	public static void redraw() {
 		theWindow.repaint();
 	}
 

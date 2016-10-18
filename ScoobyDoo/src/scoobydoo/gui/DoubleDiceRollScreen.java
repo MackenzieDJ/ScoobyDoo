@@ -3,9 +3,10 @@ package scoobydoo.gui;
 import java.awt.Color;
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 import scoobydoo.engine.gui.Screen;
 import scoobydoo.engine.sound.SoundManager;
-import scoobydoo.main.EnumObject;
 import scoobydoo.main.Game;
 import scoobydoo.main.GameLogic;
 import scoobydoo.resources.Images;
@@ -34,13 +35,27 @@ public class DoubleDiceRollScreen extends Screen {
 			GameLogic.setRoll2(option3 + 1);
 			System.out.println("OPTION " + GameLogic.getRoll1() + " + " + GameLogic.getRoll2());
 			Game.openScreen(new StatsScreen());
+			Game.redraw();
 
-			if (GameLogic.getObject1() == EnumObject.ZOMBIE) {
-				if (GameLogic.getObject2() == EnumObject.ZOMBIE) {
-					// remove
-					System.out.print("Member DIED :(");
+			if (GameLogic.scoobySnacksLeft > 0) {
+				GameLogic.scoobySnacksLeft -= GameLogic.survivorsFound / 2;
+			} else {
+				GameLogic.gangHealth -= 5;
+				if (GameLogic.gangHealth <= 0) {
+					GameLogic.gangHealth = 0;
+					JOptionPane.showMessageDialog(null, "A gang member starved to death");
+					GameLogic.killGangMember(Rand);
 				}
+			}
 
+			GameLogic.getObject1().performAction();
+			GameLogic.getObject2().performAction();
+
+			if (GameLogic.scoobySnacksLeft == GameLogic.MAX_SCOOBY_SNACKS) {
+				GameLogic.gangHealth += 3;
+				if (GameLogic.gangHealth > GameLogic.MAX_HEALTH) {
+					GameLogic.gangHealth = GameLogic.MAX_HEALTH;
+				}
 			}
 		}
 

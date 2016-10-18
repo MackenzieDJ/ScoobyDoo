@@ -1,6 +1,9 @@
 package scoobydoo.gui;
 
 import java.awt.Color;
+import java.util.Random;
+
+import javax.swing.JOptionPane;
 
 import scoobydoo.engine.gui.IProgress;
 import scoobydoo.engine.gui.IProgressTextFunction;
@@ -22,7 +25,7 @@ public class StatsScreen extends Screen {
 		addButton(0, 0, 200, 50, "Rules", "Rules");
 		// Health of gang
 		ProgressBar HealthProgressBar = new ProgressBar(width - 300, 50, 300, 40, Color.RED, Color.RED.darker(),
-				Color.WHITE, IProgress.FieldValue.staticField(GameLogic.class, "gangHealth"), 100);
+				Color.WHITE, IProgress.FieldValue.staticField(GameLogic.class, "gangHealth"), GameLogic.MAX_HEALTH);
 		HealthProgressBar.setTextFunction(new IProgressTextFunction.Format("Health: $%%"));
 		addComponent(HealthProgressBar);
 
@@ -30,7 +33,7 @@ public class StatsScreen extends Screen {
 
 		// Ammo
 		ProgressBar AmmoProgressBar = new ProgressBar(width - 300, 130, 300, 40, Color.RED, Color.RED.darker(),
-				Color.WHITE, IProgress.FieldValue.staticField(GameLogic.class, "ammunition"), 100);
+				Color.WHITE, IProgress.FieldValue.staticField(GameLogic.class, "ammunition"), GameLogic.MAX_AMMO);
 		AmmoProgressBar.setTextFunction(new IProgressTextFunction.Format("Ammunition: $%%"));
 		addComponent(AmmoProgressBar);
 
@@ -38,7 +41,8 @@ public class StatsScreen extends Screen {
 
 		// Scooby snack supply
 		ProgressBar SnacksProgressBar = new ProgressBar(width - 300, 210, 300, 40, Color.RED, Color.RED.darker(),
-				Color.WHITE, IProgress.FieldValue.staticField(GameLogic.class, "scoobySnacksLeft"), 150);
+				Color.WHITE, IProgress.FieldValue.staticField(GameLogic.class, "scoobySnacksLeft"),
+				GameLogic.MAX_SCOOBY_SNACKS);
 		SnacksProgressBar.setTextFunction(new IProgressTextFunction.Format("Snack Supply: $%%"));
 		addComponent(SnacksProgressBar);
 
@@ -46,7 +50,8 @@ public class StatsScreen extends Screen {
 
 		// Survivors found
 		ProgressBar SurvivorProgressBar = new ProgressBar(width - 300, 290, 300, 40, Color.RED, Color.RED.darker(),
-				Color.WHITE, IProgress.FieldValue.staticField(GameLogic.class, "survivorsFound"), 10);
+				Color.WHITE, IProgress.FieldValue.staticField(GameLogic.class, "survivorsFound"),
+				GameLogic.MAX_SURVIVORS);
 		SurvivorProgressBar.setTextFunction(new IProgressTextFunction.Format("Survivors: $p/$m"));
 		addComponent(SurvivorProgressBar);
 
@@ -64,8 +69,30 @@ public class StatsScreen extends Screen {
 
 	@Override
 	public void onButtonPressed(String buttonId) {
+		if ("Fire".equals(buttonId)) {
+			if (GameLogic.ammunition == 0 || GameLogic.hasFired || GameLogic.zombiesInPlay == 0) {
+				JOptionPane.showMessageDialog(null, "You can't fire a bullet at the moment");
+			} else {
+				GameLogic.ammunition -= 2;
+				if (GameLogic.ammunition < 0) {
+					GameLogic.ammunition = 0;
+				}
+				GameLogic.zombiesInPlay--;
+				GameLogic.hasFired = true;
+				JOptionPane.showMessageDialog(null, "You killed a zombie!");
+			}
+		}
 
 		if ("Continue".equals(buttonId)) {
+			Random rand = new Random();
+			GameLogic.hasFired = false;
+			while (GameLogic.zombiesInPlay > 0) {
+				GameLogic.zombiesInPlay--;
+				JOptionPane.showMessageDialog(null, "A zombie killed a gang member :(");
+				if (GameLogic.killGangMember(rand)) {
+					break;
+				}
+			}
 
 			Game.openScreen(new DisplayCharactersScreen());
 		}
