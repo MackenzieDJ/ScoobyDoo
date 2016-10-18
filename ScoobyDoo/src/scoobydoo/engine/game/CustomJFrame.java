@@ -38,6 +38,7 @@ public class CustomJFrame extends JFrame {
 			}
 		});
 		requestFocusInWindow();
+		setResizable(false);
 		setVisible(true);
 	}
 

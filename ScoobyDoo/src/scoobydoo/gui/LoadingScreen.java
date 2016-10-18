@@ -12,10 +12,16 @@ public class LoadingScreen extends Screen {
 	private int ticksUntilTitle = 150;
 	
 
+	
+	
+	@Override
+	public void onScreenOpened() {
+		SoundManager.playSound("scooby doo");
+	}
+
 	@Override
 	public void layout() {
 		addImage(0, 0, width, height, Images.Title);
-		SoundManager.playSound("scooby doo");
 		
 	}
 

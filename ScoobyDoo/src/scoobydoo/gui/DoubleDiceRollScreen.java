@@ -38,7 +38,7 @@ public class DoubleDiceRollScreen extends Screen {
 			Game.redraw();
 
 			if (GameLogic.scoobySnacksLeft > 0) {
-				GameLogic.scoobySnacksLeft -= GameLogic.survivorsFound / 2;
+				GameLogic.scoobySnacksLeft -= GameLogic.survivorsFound / 2 + 1;
 			} else {
 				GameLogic.gangHealth -= 5;
 				if (GameLogic.gangHealth <= 0) {

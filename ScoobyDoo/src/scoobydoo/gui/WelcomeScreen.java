@@ -1,7 +1,6 @@
 package scoobydoo.gui;
 
 import java.awt.Color;
-import java.util.Random;
 
 import scoobydoo.engine.gui.Screen;
 import scoobydoo.engine.sound.SoundManager;
@@ -10,6 +9,11 @@ import scoobydoo.resources.Images;
 
 public class WelcomeScreen extends Screen {
 
+	@Override
+	public void onScreenOpened() {
+		SoundManager.playSound("solve this mystery");
+	}
+	
 	@Override
 	public void layout() {
 
@@ -25,7 +29,6 @@ public class WelcomeScreen extends Screen {
 		addLabel(280, (height / 3) + 210, 55, 1, "GOOD LUCK!!!",Color.RED);
 		addLabel(280, (height / 3) + 250, 55, 1, "FROM THE MYSTERY MACHINE",Color.RED);
 		addButton(width -200, height - 50, 200, 50, "NEXT", "Next");
-		SoundManager.playSound("solve this mystery");
 	}
 	@Override
 	public void onButtonPressed(String buttonId) {

@@ -29,7 +29,7 @@ public class GameLogic {
 	public static int survivorsFound = 0;
 	public static int gangHealth = 100;
 	public static int ammunition = 10;
-	public static int scoobySnacksLeft = 20;
+	public static int scoobySnacksLeft = 75;
 	public static int zombiesInPlay = 0;
 	public static boolean hasFired = false;
 
