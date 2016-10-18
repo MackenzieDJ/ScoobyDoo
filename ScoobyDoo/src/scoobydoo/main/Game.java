@@ -32,9 +32,12 @@ public class Game {
 	public static void main(String[] args) {
 		// Loop the music
 		new Runnable() {
+			private String currentSound = "CREEPY2";
+
 			@Override
 			public void run() {
-				// SoundManager.playSound("suspense", this);
+				currentSound = "CREEPY2".equals(currentSound) ? "CREEPY1" : "CREEPY2";
+				SoundManager.playSound(currentSound, this);
 			}
 		}.run();
 

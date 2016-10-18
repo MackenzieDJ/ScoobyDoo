@@ -5,6 +5,7 @@ import java.util.Random;
 
 import scoobydoo.engine.gui.Screen;
 import scoobydoo.engine.sound.SoundManager;
+import scoobydoo.main.EnumObject;
 import scoobydoo.main.Game;
 import scoobydoo.main.GameLogic;
 import scoobydoo.resources.Images;
@@ -33,6 +34,14 @@ public class DoubleDiceRollScreen extends Screen {
 			GameLogic.setRoll2(option3 + 1);
 			System.out.println("OPTION " + GameLogic.getRoll1() + " + " + GameLogic.getRoll2());
 			Game.openScreen(new StatsScreen());
+
+			if (GameLogic.getObject1() == EnumObject.ZOMBIE) {
+				if (GameLogic.getObject2() == EnumObject.ZOMBIE) {
+					// remove
+					System.out.print("Member DIED :(");
+				}
+
+			}
 		}
 
 	}

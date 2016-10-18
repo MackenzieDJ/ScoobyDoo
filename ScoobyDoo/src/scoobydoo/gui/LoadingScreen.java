@@ -15,7 +15,7 @@ public class LoadingScreen extends Screen {
 	@Override
 	public void layout() {
 		addImage(0, 0, width, height, Images.Title);
-		//SoundManager.playSound("Roll");
+		SoundManager.playSound("scooby doo");
 		
 	}
 

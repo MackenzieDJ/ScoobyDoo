@@ -24,9 +24,9 @@ public class GameLogic {
 	
 	public static int survivorsFound = 0;
 	public static int gangHealth = 100;
-	public static int ammunition = 50;
-	public static int scoobySnacksLeft = 70;
-	
+	public static int ammunition = 10;
+	public static int scoobySnacksLeft = 20;
+
 	private static int roll1;
 	private static int roll2;
 	private static EnumObject object1;
@@ -71,7 +71,7 @@ public class GameLogic {
 	public static void addRandomGangMember(Random rand) {
 		aliveMembers.add(GangMember.randomMember(rand, aliveMembers));
 	}
-
+	
 	/**
 	 * A gang member
 	 */
